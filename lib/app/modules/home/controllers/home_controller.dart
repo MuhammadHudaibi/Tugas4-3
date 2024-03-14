@@ -71,8 +71,6 @@ class RegisterController extends GetxController {
 class LoginController extends GetxController {
   final String loggedInEmail = GetStorage().read('registeredEmail') ?? '';
   final String loggedInPassword = GetStorage().read('password') ?? '';
-  final String loggedInFullname = GetStorage().read('fullname') ?? '';
-  final String loggedInPhoneNummber = GetStorage().read('phoneNumber') ?? '';
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -93,14 +91,13 @@ class LoginController extends GetxController {
       );
     } else {
       if (emailController.text == loggedInEmail && passwordController.text == loggedInPassword) {
-        GetStorage().write('loggedInEmail', emailController.text);
         login();
         
       } 
       else {
         Get.snackbar(
           'Error',
-          'Wrong Email or Password',
+          'Wrong Email or Pass',
           backgroundColor: Colors.red,
           colorText: Colors.white,
         );
@@ -122,5 +119,4 @@ class LoginController extends GetxController {
 }
 
 class HomeController extends GetxController {
-
 }
